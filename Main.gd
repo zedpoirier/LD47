@@ -4,8 +4,20 @@ export var boulderForce = 0.0
 export var gravity = 0.1
 export var sisyphorce = 1.0
 export var pathStartOffset = 0.1
-var level = 1.0
-var state = "menu"
+var startOffset = 0.3153
+var loopTriggerOffset = 0.95
+var loopDestOffset = 0.8
+
+var v1s = 0.38
+var v1e = 0.0
+var v2s = 0.0
+var v2e = 0.0
+var v3s = 0.0
+
+func _ready():
+	$Path/Follow.unit_offset = startOffset
+	$Player.setPosition($Path/Follow.global_position)
+	print($Player.transform.get_origin())
 
 func _input(event):
 	if event is InputEventKey:
@@ -21,15 +33,9 @@ func _input(event):
 func _process(delta):
 	# setup boulderForce contraints
 	boulderForce = min(boulderForce, 3.0)
-	if $Mountain.isPlateaud() or $Mountain/Path/Follow.unit_offset < 0.05:
-		boulderForce = max(boulderForce, -2.0)
-	if $Mountain/Path/Follow.unit_offset > 0.95:
-		$Mountain/Path/Follow.unit_offset = 0.0
-		gravity += 0.1
-		$Mountain.generatePath()
 	# apply boulderForce to offset and move player
-	$Mountain/Path/Follow.offset += boulderForce
-	$Player.setPosition($Mountain/Path/Follow.position)
+	$Path/Follow.offset += boulderForce
+	$Player.setPosition($Path/Follow.position)
 	$Player.setRotation(boulderForce)
 	# control particle dust effect
 	if boulderForce < 0:
