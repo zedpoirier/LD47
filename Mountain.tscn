@@ -17,10 +17,10 @@ curve = SubResource( 1 )
 loop = false
 
 [node name="Background" type="Polygon2D" parent="."]
-color = Color( 0.44, 0.382507, 0.2244, 1 )
+color = Color( 0.823529, 0.666667, 0.513726, 1 )
 polygon = PoolVector2Array( -24.2077, 484.512, 648.147, 437.368, 614.473, 591.146, -12.9831, 587.778 )
 
 [node name="Foreground" type="Polygon2D" parent="."]
 position = Vector2( 0, 28.8776 )
-color = Color( 0.666667, 0.666667, 0.470588, 1 )
+color = Color( 0.713726, 0.552941, 0.372549, 1 )
 polygon = PoolVector2Array( -32.0649, 487.063, 673.964, 437.675, 688.555, 593.697, -26.4526, 602.677 )

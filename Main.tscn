@@ -1,10 +1,21 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
 [ext_resource path="res://Background.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Mountain.tscn" type="PackedScene" id=4]
+[ext_resource path="res://f1.png" type="Texture" id=5]
 [ext_resource path="res://Font/greekFont.tres" type="DynamicFont" id=6]
+[ext_resource path="res://g3122.png" type="Texture" id=7]
+[ext_resource path="res://boulder.png" type="Texture" id=8]
+[ext_resource path="res://b1.png" type="Texture" id=9]
+[ext_resource path="res://b2.png" type="Texture" id=10]
+[ext_resource path="res://b3.png" type="Texture" id=11]
+[ext_resource path="res://b4.png" type="Texture" id=12]
+[ext_resource path="res://f2.png" type="Texture" id=13]
+[ext_resource path="res://f3.png" type="Texture" id=14]
+[ext_resource path="res://f4.png" type="Texture" id=15]
+[ext_resource path="res://f5.png" type="Texture" id=16]
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 1
@@ -85,5 +96,110 @@ custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "SISYPHEAN WISDOM"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Menu/Control"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 141.0
+margin_top = 728.058
+margin_right = 141.0
+margin_bottom = 900.058
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "-->"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Menu/Control"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 481.0
+margin_top = 804.842
+margin_right = 481.0
+margin_bottom = 976.842
+rect_rotation = -16.6
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "V1"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="Menu/Control"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 2035.22
+margin_top = 475.572
+margin_right = 2035.22
+margin_bottom = 647.572
+rect_rotation = 17.2
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "V2"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="g3122" type="Sprite" parent="."]
+position = Vector2( 3733.85, 341 )
+texture = ExtResource( 7 )
+
+[node name="boulder" type="Sprite" parent="."]
+position = Vector2( 1030.77, 341 )
+texture = ExtResource( 8 )
+
+[node name="b1" type="Sprite" parent="."]
+position = Vector2( 2419.46, 199.001 )
+texture = ExtResource( 9 )
+
+[node name="b2" type="Sprite" parent="."]
+position = Vector2( 1524.01, 450.059 )
+texture = ExtResource( 10 )
+
+[node name="b3" type="Sprite" parent="."]
+position = Vector2( 1986.53, 380.667 )
+texture = ExtResource( 11 )
+
+[node name="b4" type="Sprite" parent="."]
+position = Vector2( 2737.72, 269.167 )
+texture = ExtResource( 12 )
+
+[node name="f1" type="Sprite" parent="."]
+position = Vector2( 310.48, 987.151 )
+scale = Vector2( 0.2, 0.2 )
+z_index = -141
+texture = ExtResource( 5 )
+
+[node name="f2" type="Sprite" parent="."]
+position = Vector2( 803.965, 986.151 )
+scale = Vector2( 0.2, 0.2 )
+z_index = -10
+texture = ExtResource( 13 )
+
+[node name="f3" type="Sprite" parent="."]
+position = Vector2( 1297.21, 987.55 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 14 )
+
+[node name="f4" type="Sprite" parent="."]
+position = Vector2( 1807.42, 987.151 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 15 )
+
+[node name="f5" type="Sprite" parent="."]
+position = Vector2( 2315.33, 987.708 )
+scale = Vector2( 0.2, 0.2 )
+z_index = -10
+texture = ExtResource( 16 )
 [connection signal="timeout" from="GravityTimer" to="." method="_on_GravityTimer_timeout"]
 [connection signal="pressed" from="Menu/Control/Button" to="." method="_on_Button_pressed"]

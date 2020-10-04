@@ -12,10 +12,14 @@ func _input(event):
 		boulderForce += sisyphorce
 
 func _process(delta):
+	checkInput()
 	if state == "menu":
 		menuMode()
 	elif state == "game":
 		gameMode()
+
+func checkInput():
+	pass
 
 func menuMode():
 	# play anims and stuff in the menu
