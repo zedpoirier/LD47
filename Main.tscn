@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
-[ext_resource path="res://art/fullScene.png" type="Texture" id=3]
+[ext_resource path="res://art/fullSceneClouds.png" type="Texture" id=3]
+[ext_resource path="res://sound/Hymne_de_Soleil.wav" type="AudioStream" id=4]
 [ext_resource path="res://art/f1.png" type="Texture" id=5]
 [ext_resource path="res://Font/greekFont.tres" type="DynamicFont" id=6]
 [ext_resource path="res://art/g3122.png" type="Texture" id=7]
@@ -35,20 +36,20 @@ color = Color( 0.792157, 0.792157, 0.792157, 1 )
 
 [sub_resource type="Curve2D" id=2]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -2866.69, 571.964, 0, 0, 0, 0, 386.657, 574.714, 0, 0, 0, 0, 763.378, 479.693, 0, 0, 0, 0, 1246.87, 479.002, 0, 0, 0, 0, 1716.37, 242.914, 0, 0, 0, 0, 2646.47, 237.568, 0, 0, 0, 0, 5326.01, -2067.23 )
+"points": PoolVector2Array( 0, 0, 0, 0, -5384.21, 586.329, 0, 0, 0, 0, -1492.23, 582.747, 0, 0, 0, 0, -1033.79, 471.556, 0, 0, 0, 0, -460.363, 470.012, 0, 0, 0, 0, 110.765, 185.058, 0, 0, 0, 0, 1218.74, 184.596, 0, 0, 0, 0, 4324, -2484 )
 }
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=3]
 size = 18
 outline_color = Color( 0.54902, 0.0862745, 0.0862745, 1 )
 font_data = ExtResource( 18 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 53
 outline_color = Color( 0.54902, 0.0862745, 0.0862745, 1 )
 font_data = ExtResource( 18 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
 size = 38
 outline_color = Color( 0.54902, 0.0862745, 0.0862745, 1 )
 font_data = ExtResource( 18 )
@@ -81,13 +82,13 @@ process_material = SubResource( 1 )
 curve = SubResource( 2 )
 
 [node name="Follow" type="PathFollow2D" parent="Path"]
-position = Vector2( 3224.75, -259.838 )
-rotation = -0.710318
-offset = 6297.34
+position = Vector2( -2085.31, 583.293 )
+rotation = -0.000923307
+offset = 3251.55
 loop = false
 
 [node name="Level" type="Sprite" parent="."]
-position = Vector2( 1625.65, -1424.51 )
+position = Vector2( 0, -1814.69 )
 scale = Vector2( 0.859888, 0.859888 )
 texture = ExtResource( 3 )
 
@@ -95,11 +96,11 @@ texture = ExtResource( 3 )
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -2786.27
-margin_top = -448.431
-margin_right = -14092.3
-margin_bottom = -393.431
-custom_fonts/font = SubResource( 5 )
+margin_left = -4469.49
+margin_top = -534.399
+margin_right = -15775.5
+margin_bottom = -479.399
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Wrong way"
 align = 1
@@ -111,11 +112,11 @@ __meta__ = {
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -4020.38
-margin_top = -457.753
-margin_right = -15326.4
-margin_bottom = -402.753
-custom_fonts/font = SubResource( 5 )
+margin_left = -5954.05
+margin_top = -545.173
+margin_right = -17260.1
+margin_bottom = -490.173
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Head the
 Warnings"
@@ -128,11 +129,11 @@ __meta__ = {
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -4554.95
-margin_top = -457.753
-margin_right = -15860.9
-margin_bottom = -402.753
-custom_fonts/font = SubResource( 5 )
+margin_left = -6595.49
+margin_top = -542.018
+margin_right = -17901.4
+margin_bottom = -487.018
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Please
 stop"
@@ -145,11 +146,11 @@ __meta__ = {
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -5299.17
-margin_top = -457.753
-margin_right = -16605.2
-margin_bottom = -402.753
-custom_fonts/font = SubResource( 5 )
+margin_left = -7489.85
+margin_top = -544.038
+margin_right = -18795.9
+margin_bottom = -489.038
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Game 
 over"
@@ -162,11 +163,11 @@ __meta__ = {
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -3418.07
-margin_top = -448.431
-margin_right = -14724.1
-margin_bottom = -393.431
-custom_fonts/font = SubResource( 5 )
+margin_left = -5230.16
+margin_top = -534.206
+margin_right = -16536.2
+margin_bottom = -479.206
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Turn Back"
 align = 1
@@ -178,11 +179,11 @@ __meta__ = {
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -1770.36
-margin_top = -464.682
-margin_right = -13045.4
-margin_bottom = -292.682
-custom_fonts/font = SubResource( 3 )
+margin_left = -3251.38
+margin_top = -546.018
+margin_right = -14526.4
+margin_bottom = -374.018
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "-->"
 align = 1
@@ -194,12 +195,12 @@ __meta__ = {
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -1519.09
-margin_top = -443.443
-margin_right = -12842.1
-margin_bottom = -271.443
+margin_left = -2909.27
+margin_top = -222.944
+margin_right = -14232.3
+margin_bottom = -50.9436
 rect_rotation = -15.5
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "V1"
 align = 1
@@ -211,12 +212,12 @@ __meta__ = {
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -495.983
-margin_top = -581.018
-margin_right = -11819.0
-margin_bottom = -409.018
+margin_left = -1713.27
+margin_top = -782.499
+margin_right = -13036.3
+margin_bottom = -610.499
 rect_rotation = 4.5
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "V2"
 align = 1
@@ -228,12 +229,12 @@ __meta__ = {
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = 1106.87
-margin_top = -844.497
-margin_right = -10216.1
-margin_bottom = -672.497
+margin_left = 218.368
+margin_top = -786.23
+margin_right = -11104.6
+margin_bottom = -614.23
 rect_rotation = -11.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "V3"
 align = 1
@@ -241,13 +242,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+
 [node name="Menu" type="Node2D" parent="."]
+position = Vector2( -1920, -16 )
 
 [node name="Control" type="Control" parent="Menu"]
 margin_left = -318.0
-margin_top = 104.0
+margin_top = 102.112
 margin_right = 282.0
-margin_bottom = 704.0
+margin_bottom = 702.112
 __meta__ = {
 "_edit_use_anchors_": false
 }

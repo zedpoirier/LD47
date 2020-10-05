@@ -26,10 +26,7 @@ func _input(event):
 			if event.scancode == KEY_ESCAPE:
 				get_tree().quit()
 			elif !event.echo:
-				if event.scancode == KEY_LEFT:
-					boulderForce -= sisyphorce
-				else:
-					boulderForce += sisyphorce
+				boulderForce += sisyphorce
 
 func _process(delta):
 	checkProgress()
@@ -65,6 +62,8 @@ func checkProgress():
 		plateaud = true
 	elif $Path/Follow.unit_offset > v1s:
 		plateaud = false
+	elif $Path/Follow.unit_offset > 0.01:
+		plateaud = true
 	
 func _on_GravityTimer_timeout():
 	if !plateaud:
