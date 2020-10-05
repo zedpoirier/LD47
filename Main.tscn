@@ -83,7 +83,7 @@ curve = SubResource( 2 )
 
 [node name="Follow" type="PathFollow2D" parent="Path"]
 position = Vector2( -2085.31, 583.293 )
-rotation = -0.000923307
+rotation = -0.000908881
 offset = 3251.55
 loop = false
 
@@ -294,32 +294,15 @@ __meta__ = {
 position = Vector2( -2866, 0 )
 
 [node name="Control" type="Control" parent="EndScreen"]
-margin_left = -318.0
-margin_top = 104.0
-margin_right = 282.0
-margin_bottom = 704.0
+margin_left = 628.0
+margin_top = 113.112
+margin_right = 1228.0
+margin_bottom = 713.112
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="EndScreen/Control"]
-visible = false
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = 20.0
-margin_top = -273.0
-margin_right = 20.0
-margin_bottom = -101.0
-custom_fonts/font = ExtResource( 6 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "SISYPHEAN WISDOM"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label2" type="Label" parent="EndScreen/Control"]
+[node name="WinText" type="Label" parent="EndScreen/Control"]
 visible = false
 anchor_top = 0.5
 anchor_right = 1.0
@@ -331,7 +314,7 @@ margin_bottom = -21.0
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Just Kidding
-YOU WIN!"
+YOU WON!"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false

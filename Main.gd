@@ -46,8 +46,7 @@ func _process(delta):
 
 func checkProgress():
 	if $Path/Follow.unit_offset < 0.01:
-		$EndScreen/Control/Label.visible = true
-		$EndScreen/Control/Label2.visible = true
+		$EndScreen/Control/WinText.visible = true
 		return
 	elif $Path/Follow.unit_offset > loopTriggerOffset:
 		$Path/Follow.unit_offset = loopDestOffset
