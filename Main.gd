@@ -4,15 +4,16 @@ export var boulderForce = 0.0
 export var gravity = 0.1
 export var sisyphorce = 1.0
 export var pathStartOffset = 0.1
-var startOffset = 0.3153
-var loopTriggerOffset = 0.95
-var loopDestOffset = 0.8
 
-var v1s = 0.38
-var v1e = 0.0
-var v2s = 0.0
-var v2e = 0.0
-var v3s = 0.0
+var plateaud = true
+var startOffset = 0.3153
+var v1s = 0.352
+var v1e = 0.4012
+var v2s = 0.455
+var v2e = 0.514
+var v3s = 0.615
+var loopDestOffset = 0.75
+var loopTriggerOffset = 0.85
 
 func _ready():
 	$Path/Follow.unit_offset = startOffset
@@ -31,6 +32,7 @@ func _input(event):
 					boulderForce += sisyphorce
 
 func _process(delta):
+	checkProgress()
 	# setup boulderForce contraints
 	boulderForce = min(boulderForce, 3.0)
 	# apply boulderForce to offset and move player
@@ -45,6 +47,32 @@ func _process(delta):
 	else:
 		$Dust.emitting = false
 
+func checkProgress():
+	if $Path/Follow.unit_offset < 0.01:
+		$EndScreen/Control/Label.visible = true
+		$EndScreen/Control/Label2.visible = true
+		return
+	elif $Path/Follow.unit_offset > loopTriggerOffset:
+		$Path/Follow.unit_offset = loopDestOffset
+		$Player.setPosition($Path/Follow.position)
+	elif $Path/Follow.unit_offset > v3s:
+		plateaud = false
+	elif $Path/Follow.unit_offset > v2e:
+		plateaud = true
+	elif $Path/Follow.unit_offset > v2s:
+		plateaud = false
+	elif $Path/Follow.unit_offset > v1e:
+		plateaud = true
+	elif $Path/Follow.unit_offset > v1s:
+		plateaud = false
+	
 func _on_GravityTimer_timeout():
-	if boulderForce - gravity > 0:
-		boulderForce -= gravity
+	if !plateaud:
+		boulderForce -= gravity * 2.0
+	else:
+		if boulderForce - gravity > 0:
+			boulderForce -= gravity
+
+
+func _on_Timer_timeout():
+	get_tree().quit()
