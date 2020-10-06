@@ -1,8 +1,7 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
-[ext_resource path="res://art/fullSceneClouds.png" type="Texture" id=3]
 [ext_resource path="res://sound/Hymne_de_Soleil.wav" type="AudioStream" id=4]
 [ext_resource path="res://art/f1.png" type="Texture" id=5]
 [ext_resource path="res://Font/greekFont.tres" type="DynamicFont" id=6]
@@ -16,23 +15,11 @@
 [ext_resource path="res://art/f3.png" type="Texture" id=14]
 [ext_resource path="res://art/f4.png" type="Texture" id=15]
 [ext_resource path="res://art/f5.png" type="Texture" id=16]
+[ext_resource path="res://art/sliceB.png" type="Texture" id=17]
 [ext_resource path="res://Font/DalekPinpointBold.ttf" type="DynamicFontData" id=18]
-
-[sub_resource type="ParticlesMaterial" id=1]
-emission_shape = 1
-emission_sphere_radius = 1.0
-flag_disable_z = true
-direction = Vector3( 0, 0, 0 )
-spread = 0.0
-gravity = Vector3( 0, 20, 0 )
-angular_velocity = 16.55
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-angle = 215.2
-angle_random = 1.0
-scale = 25.26
-scale_random = 0.77
-color = Color( 0.792157, 0.792157, 0.792157, 1 )
+[ext_resource path="res://art/sliceA.png" type="Texture" id=19]
+[ext_resource path="res://art/sliceC.png" type="Texture" id=20]
+[ext_resource path="res://art/sliceD.png" type="Texture" id=21]
 
 [sub_resource type="Curve2D" id=2]
 _data = {
@@ -69,14 +56,25 @@ z_index = 2
 offset = Vector2( 0, -200 )
 current = true
 
-[node name="Dust" type="Particles2D" parent="."]
+[node name="Dust" type="CPUParticles2D" parent="."]
 rotation = -2.00713
 z_index = 1
+emitting = false
 amount = 20
 lifetime = 0.5
 speed_scale = 0.5
 local_coords = false
-process_material = SubResource( 1 )
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2( 0, 0 )
+spread = 0.0
+gravity = Vector2( 0, 20 )
+angular_velocity = 16.55
+angle = 215.2
+angle_random = 1.0
+scale_amount = 25.26
+scale_amount_random = 0.77
+color = Color( 0.792157, 0.792157, 0.792157, 1 )
 
 [node name="Path" type="Path2D" parent="."]
 curve = SubResource( 2 )
@@ -90,66 +88,55 @@ loop = false
 [node name="Level" type="Sprite" parent="."]
 position = Vector2( 0, -1814.69 )
 scale = Vector2( 0.859888, 0.859888 )
-texture = ExtResource( 3 )
 
-[node name="Label-2" type="Label" parent="Level"]
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -4469.49
-margin_top = -534.399
-margin_right = -15775.5
-margin_bottom = -479.399
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Wrong way"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="sliceA" type="Sprite" parent="Level"]
+position = Vector2( -5000.04, 2694.76 )
+scale = Vector2( 1.00013, 1.00013 )
+texture = ExtResource( 19 )
 
-[node name="Label-1" type="Label" parent="Level"]
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -5954.05
-margin_top = -545.173
-margin_right = -17260.1
-margin_bottom = -490.173
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Head the
-Warnings"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="sliceB" type="Sprite" parent="Level"]
+position = Vector2( -1454.43, 2495.96 )
+scale = Vector2( 1.00013, 1.00013 )
+texture = ExtResource( 17 )
 
-[node name="Label-3" type="Label" parent="Level"]
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -6595.49
-margin_top = -542.018
-margin_right = -17901.4
-margin_bottom = -487.018
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Please
-stop"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="sliceC" type="Sprite" parent="Level"]
+position = Vector2( 1878.38, 1444.82 )
+scale = Vector2( 1.00013, 1.00013 )
+texture = ExtResource( 20 )
+
+[node name="sliceD" type="Sprite" parent="Level"]
+position = Vector2( 5209.81, 304.669 )
+scale = Vector2( 1.00013, 1.00013 )
+texture = ExtResource( 21 )
+
+[node name="sliceD2" type="Sprite" parent="Level"]
+position = Vector2( -867.334, 397.619 )
+scale = Vector2( 1.00013, 1.00013 )
+texture = ExtResource( 21 )
+
+[node name="sliceD3" type="Sprite" parent="Level"]
+position = Vector2( 2725.01, -1753.61 )
+scale = Vector2( 1.00013, 1.00013 )
+texture = ExtResource( 21 )
+
+[node name="sliceD4" type="Sprite" parent="Level"]
+position = Vector2( 2041, -1753.61 )
+scale = Vector2( 1.41058, 1.00013 )
+texture = ExtResource( 21 )
+
+[node name="sliceD5" type="Sprite" parent="Level"]
+position = Vector2( 2041, -1753.61 )
+scale = Vector2( 1.41058, 1.00013 )
+texture = ExtResource( 21 )
 
 [node name="Label-4" type="Label" parent="Level"]
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -7489.85
-margin_top = -544.038
-margin_right = -18795.9
-margin_bottom = -489.038
+margin_left = -6288.46
+margin_top = 2650.05
+margin_right = -6240.46
+margin_bottom = 2705.05
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Game 
@@ -159,17 +146,67 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label-3" type="Label" parent="Level"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -5401.76
+margin_top = 2650.05
+margin_right = -5345.76
+margin_bottom = 2705.05
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Please
+stop"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label-2" type="Label" parent="Level"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -4766.58
+margin_top = 2650.05
+margin_right = -4687.58
+margin_bottom = 2705.05
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Head the
+Warnings"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label-1" type="Label" parent="Level"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -4043.8
+margin_top = 2661.59
+margin_right = -3958.8
+margin_bottom = 2716.59
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Turn Back"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Label0" type="Label" parent="Level"]
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -5230.16
-margin_top = -534.206
-margin_right = -16536.2
-margin_bottom = -479.206
+margin_left = -3294.41
+margin_top = 2661.59
+margin_right = -3198.41
+margin_bottom = 2716.59
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Turn Back"
+text = "Wrong way"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -179,10 +216,10 @@ __meta__ = {
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -3251.38
-margin_top = -546.018
-margin_right = -14526.4
-margin_bottom = -374.018
+margin_left = -2046.78
+margin_top = 2650.05
+margin_right = -1979.78
+margin_bottom = 2822.05
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "-->"
@@ -195,10 +232,10 @@ __meta__ = {
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -2909.27
-margin_top = -222.944
-margin_right = -14232.3
-margin_bottom = -50.9436
+margin_left = -1760.63
+margin_top = 2650.05
+margin_right = -1719.63
+margin_bottom = 2822.05
 rect_rotation = -15.5
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -212,10 +249,10 @@ __meta__ = {
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -1713.27
-margin_top = -782.499
-margin_right = -13036.3
-margin_bottom = -610.499
+margin_left = -535.255
+margin_top = 2503.6
+margin_right = -486.255
+margin_bottom = 2675.6
 rect_rotation = 4.5
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -229,10 +266,10 @@ __meta__ = {
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = 218.368
-margin_top = -786.23
-margin_right = -11104.6
-margin_bottom = -614.23
+margin_left = 1389.68
+margin_top = 2178.22
+margin_right = 1435.68
+margin_bottom = 2350.22
 rect_rotation = -11.0
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )

@@ -21,12 +21,16 @@ func _ready():
 	print($Player.transform.get_origin())
 
 func _input(event):
-	if event is InputEventKey:
-		if event.pressed:
-			if event.scancode == KEY_ESCAPE:
-				get_tree().quit()
-			elif !event.echo:
-				boulderForce += sisyphorce
+	if !event.is_echo():
+		if event is InputEventMouseButton:
+			if event.pressed:
+					boulderForce += sisyphorce
+		if event is InputEventKey:
+			if event.pressed:
+				if event.scancode == KEY_ESCAPE:
+					get_tree().quit()
+				elif !event.echo:
+					boulderForce += sisyphorce
 
 func _process(delta):
 	checkProgress()

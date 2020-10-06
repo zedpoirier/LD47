@@ -15,14 +15,16 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Ld 47"
+config/name="Sisyphean Wisdom"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
 [display]
 
 window/size/width=600
+window/size/resizable=false
 window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [input]
 
@@ -35,4 +37,7 @@ push={
 
 [rendering]
 
-environment/default_environment="res://default_env.tres"
+quality/driver/driver_name="GLES2"
+quality/intended_usage/framebuffer_allocation=1
+vram_compression/import_etc=true
+quality/directional_shadow/size=256
