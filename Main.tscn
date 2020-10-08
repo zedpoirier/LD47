@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
@@ -21,44 +21,37 @@
 [ext_resource path="res://art/sliceC.png" type="Texture" id=20]
 [ext_resource path="res://art/sliceD.png" type="Texture" id=21]
 
-[sub_resource type="Curve2D" id=2]
+[sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -5384.21, 586.329, 0, 0, 0, 0, -1492.23, 582.747, 0, 0, 0, 0, -1033.79, 471.556, 0, 0, 0, 0, -460.363, 470.012, 0, 0, 0, 0, 110.765, 185.058, 0, 0, 0, 0, 1218.74, 184.596, 0, 0, 0, 0, 4324, -2484 )
 }
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 18
 outline_color = Color( 0.54902, 0.0862745, 0.0862745, 1 )
 font_data = ExtResource( 18 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 size = 53
 outline_color = Color( 0.54902, 0.0862745, 0.0862745, 1 )
 font_data = ExtResource( 18 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 size = 38
+outline_color = Color( 0.54902, 0.0862745, 0.0862745, 1 )
+font_data = ExtResource( 18 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 42
 outline_color = Color( 0.54902, 0.0862745, 0.0862745, 1 )
 font_data = ExtResource( 18 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="GravityTimer" type="Timer" parent="."]
-wait_time = 0.1
-autostart = true
-
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 20, 573 )
-z_index = 2
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-offset = Vector2( 0, -200 )
-current = true
-
 [node name="Dust" type="CPUParticles2D" parent="."]
+position = Vector2( -443.621, -572.753 )
 rotation = -2.00713
-z_index = 1
 emitting = false
 amount = 20
 lifetime = 0.5
@@ -76,8 +69,20 @@ scale_amount = 25.26
 scale_amount_random = 0.77
 color = Color( 0.792157, 0.792157, 0.792157, 1 )
 
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 0 )
+z_index = 2
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+offset = Vector2( 0, -200 )
+current = true
+
+[node name="GravityTimer" type="Timer" parent="Player"]
+wait_time = 0.1
+autostart = true
+
 [node name="Path" type="Path2D" parent="."]
-curve = SubResource( 2 )
+curve = SubResource( 1 )
 
 [node name="Follow" type="PathFollow2D" parent="Path"]
 position = Vector2( -2085.31, 583.293 )
@@ -114,6 +119,11 @@ position = Vector2( -867.334, 397.619 )
 scale = Vector2( 1.00013, 1.00013 )
 texture = ExtResource( 21 )
 
+[node name="sliceD6" type="Sprite" parent="Level"]
+position = Vector2( -3697.86, 729.16 )
+scale = Vector2( 1.00013, 1.00013 )
+texture = ExtResource( 21 )
+
 [node name="sliceD3" type="Sprite" parent="Level"]
 position = Vector2( 2725.01, -1753.61 )
 scale = Vector2( 1.00013, 1.00013 )
@@ -137,7 +147,7 @@ margin_left = -6288.46
 margin_top = 2650.05
 margin_right = -6240.46
 margin_bottom = 2705.05
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Game 
 over"
@@ -154,7 +164,7 @@ margin_left = -5401.76
 margin_top = 2650.05
 margin_right = -5345.76
 margin_bottom = 2705.05
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Please
 stop"
@@ -171,7 +181,7 @@ margin_left = -4766.58
 margin_top = 2650.05
 margin_right = -4687.58
 margin_bottom = 2705.05
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Head the
 Warnings"
@@ -188,7 +198,7 @@ margin_left = -4043.8
 margin_top = 2661.59
 margin_right = -3958.8
 margin_bottom = 2716.59
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Turn Back"
 align = 1
@@ -204,7 +214,7 @@ margin_left = -3294.41
 margin_top = 2661.59
 margin_right = -3198.41
 margin_bottom = 2716.59
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Wrong way"
 align = 1
@@ -220,7 +230,7 @@ margin_left = -2046.78
 margin_top = 2650.05
 margin_right = -1979.78
 margin_bottom = 2822.05
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "-->"
 align = 1
@@ -237,7 +247,7 @@ margin_top = 2650.05
 margin_right = -1719.63
 margin_bottom = 2822.05
 rect_rotation = -15.5
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "V1"
 align = 1
@@ -254,7 +264,7 @@ margin_top = 2503.6
 margin_right = -486.255
 margin_bottom = 2675.6
 rect_rotation = 4.5
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "V2"
 align = 1
@@ -271,10 +281,40 @@ margin_top = 2178.22
 margin_right = 1435.68
 margin_bottom = 2350.22
 rect_rotation = -11.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "V3"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Node2D" parent="."]
+
+[node name="Control" type="Control" parent="Score"]
+margin_left = -281.723
+margin_top = -355.363
+margin_right = -241.723
+margin_bottom = -315.363
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Score/Control"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Score:"
+
+[node name="Value" type="Label" parent="Score/Control"]
+margin_left = 143.892
+margin_top = 1.05946
+margin_right = 206.892
+margin_bottom = 44.0595
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0m"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -445,5 +485,5 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="timeout" from="GravityTimer" to="." method="_on_GravityTimer_timeout"]
+[connection signal="timeout" from="Player/GravityTimer" to="." method="_on_GravityTimer_timeout"]
 [connection signal="pressed" from="Menu/Control/Button" to="." method="_on_Button_pressed"]
